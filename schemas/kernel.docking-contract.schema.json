@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/kernel.docking-contract.schema.json",
+  "title": "Kernel-issued docking contract",
+  "description": "Machine-checkable contract for sidecar runs docked to the kernel registry.",
+  "type": "object",
+  "required": [
+    "docking_contract",
+    "resolved_scope_set",
+    "artifact_request",
+    "trust_boundary",
+    "freshness",
+    "invariants",
+    "fingerprint"
+  ],
+  "properties": {
+    "docking_contract": {
+      "type": "object",
+      "required": [
+        "contract_version",
+        "kernel_project_id",
+        "sidecar_project_id"
+      ],
+      "properties": {
+        "contract_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "kernel_project_id": {
+          "type": "string"
+        },
+        "sidecar_project_id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "resolved_scope_set": {
+      "type": "object"
+    },
+    "artifact_request": {
+      "type": "object"
+    },
+    "trust_boundary": {
+      "type": "object"
+    },
+    "freshness": {
+      "type": "object"
+    },
+    "invariants": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "fingerprint": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

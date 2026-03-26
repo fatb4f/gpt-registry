@@ -1,0 +1,9 @@
+refs:
+  meta_manifest: kernel/meta-manifest.yaml
+  sources_manifest: kernel/sources/manifest.yaml
+  contracts_manifest: kernel/manifests/contracts.yaml
+  workflows_manifest: kernel/manifests/workflows.yaml
+  publication_manifest: kernel/manifests/publication.yaml
+  lineage_manifest: kernel/manifests/lineage.yaml
+  glossary_manifest: kernel/manifests/glossary.yaml
+  decision_register_manifest: kernel/manifests/decision-register.yaml

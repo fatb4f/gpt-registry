@@ -1,0 +1,22 @@
+sources:
+  project_id: artifact-genai-loop
+  source_set_id: as-2026-03-25-001
+  resolved_from: kernel-issued docking contract
+  included_refs:
+    - kernel/sources/manifest.yaml
+    - kernel/meta-manifest.yaml
+    - kernel/manifests/contracts.yaml
+    - kernel/manifests/workflows.yaml
+    - kernel/manifests/publication.yaml
+    - kernel/manifests/lineage.yaml
+    - kernel/manifests/glossary.yaml
+    - kernel/manifests/decision-register.yaml
+    - schemas/kernel.docking-contract.schema.json
+  source_purpose:
+    - artifact generation
+    - validation evidence
+    - publication recommendation
+  excluded_refs:
+    - authority-bearing changes
+    - kernel policy edits
+    - kernel scope expansion

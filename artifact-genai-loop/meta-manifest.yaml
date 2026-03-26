@@ -1,0 +1,66 @@
+project:
+  id: artifact-genai-loop
+  name: Artifact GenAI Loop Sidecar
+  version: 0.1.0
+  status: active
+  owners:
+    - _404
+  last_updated: 2026-03-25
+
+purpose:
+  summary: >
+    Execution and publication plane for generating artifact bundles from
+    kernel-issued resolved scope sets.
+
+scope:
+  in_scope:
+    - packet generation
+    - bundle assembly
+    - validation evidence
+    - publication recommendation
+    - scoped artifact publication
+  out_of_scope:
+    - kernel authority changes
+    - scope expansion
+    - policy creation
+    - trust-root mutation
+
+authority:
+  root: kernel
+  dependency_model: >
+    The sidecar is independent as a project but not authority-independent.
+    It may only operate on kernel-issued resolved scope sets.
+  source_priority:
+    - artifact-genai-loop/docking-contract.yaml
+    - artifact-genai-loop/sources/manifest.yaml
+    - artifact-genai-loop/instructions.md
+    - kernel-issued resolved scope set
+  conflict_rule: >
+    Kernel-issued scope wins over local inference. Unresolved conflicts must be
+    reported and must not be inferred away.
+
+retrieval:
+  admissible_inputs:
+    - artifact-genai-loop/docking-contract.yaml
+    - artifact-genai-loop/sources/manifest.yaml
+    - kernel-issued resolved scope set
+    - approved examples
+  reference_only_sources:
+    - README.md
+    - AGENTS.md
+
+linked_manifests:
+  - id: docking-contract
+    ref: artifact-genai-loop/docking-contract.yaml
+  - id: sources
+    ref: artifact-genai-loop/sources/manifest.yaml
+  - id: instructions
+    ref: artifact-genai-loop/instructions.md
+
+change_control:
+  freshness:
+    review_cadence: on-change
+    stale_when: kernel_scope_hash_changes
+  compatibility:
+    versioning_rule: semantic
+    deprecation_policy: keep prior docking contracts until superseded

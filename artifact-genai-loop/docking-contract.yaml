@@ -1,0 +1,60 @@
+docking_contract:
+  contract_version: 1
+  sidecar_project_id: artifact-genai-loop
+  kernel_source_root: kernel
+
+  resolved_scope_set:
+    scope_set_id: ks-2026-03-25-001
+    manifest_refs:
+      - kernel/meta-manifest.yaml
+      - kernel/manifests/contracts.yaml
+      - kernel/manifests/workflows.yaml
+      - kernel/manifests/publication.yaml
+      - kernel/manifests/lineage.yaml
+      - kernel/manifests/glossary.yaml
+      - kernel/manifests/decision-register.yaml
+    contract_refs:
+      - schemas/kernel.contract.schema.json
+      - schemas/kernel.workflow.schema.json
+      - schemas/kernel.publication.schema.json
+      - schemas/kernel.lineage.schema.json
+      - schemas/kernel.docking-contract.schema.json
+    workflow_profile_ref: kernel/manifests/workflows.yaml
+    publication_policy_ref: kernel/manifests/publication.yaml
+    example_bundle_refs: []
+
+  artifact_request:
+    artifact_class: plan_packet_bundle
+    required_outputs:
+      - packet
+      - validation_evidence
+      - fingerprint_record
+      - publication_recommendation
+    prohibited_outputs:
+      - authority_manifest_edits
+      - policy_edits
+      - schema_edits
+
+  trust_boundary:
+    authority_bearing: false
+    human_gate_required: false
+    direct_publish_allowed: true
+
+  freshness:
+    issued_at: 2026-03-25
+    expires_at: 2026-03-28
+    stale_after: 72h
+    linkage_status: pending_chatgpt_project_creation
+    kernel_policy_ingest_mode: symlink_or_sparse_checkout
+
+  invariants:
+    - kernel decides truth
+    - sidecar executes within declared bounds
+    - no scope widening
+    - no policy override
+    - no publication outside kernel policy
+
+  fingerprint:
+    scope_hash: sha256:<scope-hash>
+    policy_hash: sha256:<policy-hash>
+    schema_hash: sha256:<schema-hash>
