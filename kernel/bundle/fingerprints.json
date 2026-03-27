@@ -20,7 +20,7 @@
     },
     {
       "path": "published/sources/fingerprints.json",
-      "sha256": "e2b5579183f37e5eacedf69662c76bd5098ed35aa72ce48442e2d460969cacb5"
+      "sha256": "bd553081b45fca52481e189f99b038ede93dc00e6873c48714edd6592cb0a240"
     },
     {
       "path": "published/sources/manifest.md",
@@ -104,8 +104,8 @@
     },
     {
       "path": "published/sources/release.json",
-      "sha256": "0bcfc6e53c5c48674d5753bc939b6e074cd1b95d6edb1a5329eaf85454fc154a"
+      "sha256": "10666e51610c263ff64cb6a7efd677899c0cee6862c9c9557dd6fc32df91fc8c"
     }
   ],
-  "generated_at": "2026-03-27T18:42:18Z"
+  "generated_at": "2026-03-27T18:47:25Z"
 }

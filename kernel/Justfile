@@ -12,4 +12,7 @@ render-md:
 archive:
   ./bundle/archive.sh
 
+publish:
+  ./bundle/publish.sh
+
 bundle: build archive
