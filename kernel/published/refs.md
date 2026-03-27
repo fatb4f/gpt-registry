@@ -1,0 +1,26 @@
+# Source Refs
+
+Source: `sources/refs.yaml`
+
+Notes:
+- Bootstrap lookup table for automation and sync workflows.
+
+```yaml
+refs:
+  agents: kernel/project/AGENTS.md
+  instructions: kernel/project/instructions.md
+  meta_manifest: kernel/project/meta-manifest.yaml
+  sources_manifest: kernel/project/sources/manifest.yaml
+  project_sources_manifest: kernel/project/sources/project-sources.yaml
+  logic_validation_tests: kernel/project/validation/logic-tests.yaml
+  contracts_manifest: kernel/project/manifests/contracts.yaml
+  workflows_manifest:
+    ref: kernel/project/manifests/workflows.yaml
+    visibility: external_reference_only
+    required_for_visible_root_validation: false
+  publication_manifest: kernel/project/manifests/publication.yaml
+  lineage_manifest: kernel/project/manifests/lineage.yaml
+  glossary_manifest: kernel/project/manifests/glossary.yaml
+  decision_register_manifest: kernel/project/manifests/decision-register.yaml
+
+```

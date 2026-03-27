@@ -1,0 +1,48 @@
+# Glossary Manifest
+
+Source: `manifests/glossary.yaml`
+
+```yaml
+manifest:
+  id: glossary
+  type: glossary_registry
+  version: 0.1.0
+  status: active
+  owner: _404
+  last_updated: 2026-03-25
+
+scope:
+  in_scope:
+    - domain vocabulary
+    - aliases
+    - naming conventions
+    - reserved ids
+  out_of_scope:
+    - workflow policy
+    - publication policy
+
+authority:
+  canonical_sources:
+    - kernel/project/meta-manifest.yaml
+    - kernel/project/manifests/glossary.yaml
+  source_priority:
+    - kernel/project/meta-manifest.yaml
+    - kernel/project/manifests/glossary.yaml
+  conflict_resolution: higher priority wins; terms must be normalized to the glossary
+
+glossary:
+  terms:
+    kernel:
+      definition: Authority and retrieval plane for the registry.
+    sidecar:
+      definition: Execution and publication plane that consumes kernel scope.
+    manifest:
+      definition: Canonical registry file for scope, contracts, workflow, or policy.
+    scope_set:
+      definition: Kernel-resolved set of manifests and refs allowed for a run.
+
+freshness:
+  review_cadence: on-change
+  staleness_policy: glossary changes require downstream term review
+
+```

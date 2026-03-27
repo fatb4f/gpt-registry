@@ -1,0 +1,78 @@
+# Contracts Manifest
+
+Source: `manifests/contracts.yaml`
+
+```yaml
+manifest:
+  id: contracts
+  type: contract_registry
+  version: 0.1.0
+  status: active
+  owner: _404
+  last_updated: 2026-03-25
+
+scope:
+  in_scope:
+    - artifact schemas
+    - required artifact shapes
+    - schema versions
+    - contract references
+  out_of_scope:
+    - runtime execution details
+    - publication mechanics
+
+authority:
+  canonical_sources:
+    - kernel/project/meta-manifest.yaml
+    - kernel/project/manifests/contracts.yaml
+  source_priority:
+    - kernel/project/meta-manifest.yaml
+    - kernel/project/manifests/contracts.yaml
+  conflict_resolution: higher priority wins; surface conflicts explicitly
+
+contracts:
+  required_artifacts:
+    - id: kernel.meta-manifest.yaml
+      type: yaml
+      required: true
+    - id: kernel.manifests/contracts.yaml
+      type: yaml
+      required: true
+  schema_refs:
+    - id: kernel.contract.schema
+      ref: schemas/kernel.contract.schema.json
+  policy_refs:
+    - id: kernel.contract.policy
+      ref: policy/kernel/contracts.policy.yaml
+  generation_refs:
+    - id: kernel.contract.bundle
+      ref: bundle/kernel-contract-pack.json
+
+workflow:
+  stages:
+    - draft
+    - validate
+    - review
+    - publish
+  gates:
+    - schema_valid
+    - source_priority_resolved
+    - required_artifacts_present
+
+constraints:
+  trust_boundary: kernel
+  allowed_tools:
+    - git
+    - jq
+    - yaml
+  prohibited_actions:
+    - invent_schema_fields
+    - weaken_contracts
+
+freshness:
+  review_cadence: on-change
+  staleness_policy: any contract ref change marks dependent packs stale
+
+open_questions: []
+
+```

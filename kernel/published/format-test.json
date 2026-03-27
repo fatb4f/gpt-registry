@@ -1,0 +1,10 @@
+{
+  "artifact_type": "gpt_project_format_stub",
+  "artifact_version": "0.1.0",
+  "format": "json",
+  "purpose": "connector_retrieval_probe",
+  "canonical_repo": "fatb4f/kernel",
+  "canonical_project_root": "kernel/project",
+  "published_root": "kernel/published",
+  "message": "This JSON stub exists only to test ChatGPT project retrieval behavior for JSON files."
+}

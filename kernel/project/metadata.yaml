@@ -1,12 +1,3 @@
-# Project Pack
-
-Source: `metadata.yaml`
-
-Notes:
-- Canonical project registry metadata in Git.
-- Rendered as Markdown for ChatGPT project-source compatibility.
-
-```yaml
 project:
   id: kernel
   name: Kernel
@@ -67,5 +58,3 @@ notes:
   - instructions.md in project/ is canonical in git, while AGENTS.md is the bundled behavioral mirror for project retrieval.
   - ChatGPT Project UI instructions should be pasted from project/instructions.md when needed.
   - release and fingerprint artifacts remain local bundle outputs and are not mirrored into the ChatGPT-facing pack.
-
-```

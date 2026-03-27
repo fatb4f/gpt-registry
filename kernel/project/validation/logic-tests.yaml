@@ -1,0 +1,115 @@
+suite:
+  id: kernel-registry-logic-validation
+  version: 0.1.0
+  status: active
+  owner: _404
+  issue_ref: https://github.com/fatb4f/gpt-registry/issues/1
+  evaluated_bundle_ref: kernel/published/project-pack.md
+  evaluated_sources_root: kernel/published
+  purpose: >
+    Context-centric validation questions for testing whether ChatGPT uses the
+    kernel registry bundle as a routed retrieval slice instead of collapsing it
+    into full repository authority.
+  pass_rule: >
+    Answers must cite the required refs, preserve the bundle boundary, and
+    avoid inventing in-pack availability for external references.
+
+cases:
+  - id: lv1_root_router
+    question: Which file is the root router for the kernel project pack, and how should source conflicts be resolved?
+    required_refs:
+      - kernel/project/meta-manifest.yaml
+      - kernel/project/sources/manifest.yaml
+    expected_facts:
+      - meta-manifest.yaml is the root router
+      - source priority is declared explicitly
+      - unresolved conflicts must be surfaced, not silently inferred
+    forbidden_claims:
+      - AGENTS.md overrides meta-manifest authority
+      - project pack files can be merged without conflict reporting
+
+  - id: lv2_bundle_boundary
+    question: Is this project pack the full kernel authority plane?
+    required_refs:
+      - kernel/project/meta-manifest.yaml
+      - kernel/project/AGENTS.md
+      - kernel/project/instructions.md
+    expected_facts:
+      - the bundle is a RAG registry and retrieval slice to fatb4f/kernel
+      - only physically present files are in-pack sources
+      - external refs remain pointers unless mirrored
+    forbidden_claims:
+      - the bundle is the full kernel
+      - external refs are available in-pack by default
+
+  - id: lv3_source_use_order
+    question: In what order should the bundle sources be consulted when answering a kernel question?
+    required_refs:
+      - kernel/project/AGENTS.md
+      - kernel/project/instructions.md
+      - kernel/project/meta-manifest.yaml
+    expected_facts:
+      - start at meta-manifest.yaml
+      - then linked manifests
+      - then schema and policy refs
+      - then lineage and decision records
+      - then approved exemplars
+    forbidden_claims:
+      - examples come before manifests
+      - AGENTS.md replaces manifest routing
+
+  - id: lv4_instruction_authority_split
+    question: What is the difference between project/instructions.md and AGENTS.md?
+    required_refs:
+      - kernel/project/metadata.yaml
+      - kernel/project/instructions.md
+      - kernel/project/AGENTS.md
+    expected_facts:
+      - project/instructions.md is canonical in git
+      - AGENTS.md is the bundled behavioral guide inside the pack
+      - ChatGPT Project UI instructions should be pasted from project/instructions.md
+      - UI instructions may layer pointer guidance but do not replace canonical git authority
+    forbidden_claims:
+      - AGENTS.md is the canonical git source
+      - AGENTS.md replaces project/instructions.md as the source for pasted UI instructions
+
+  - id: lv5_project_source_contract
+    question: Which files are required in the pack, and how should missing external schema or policy refs be treated?
+    required_refs:
+      - kernel/project/sources/project-sources.yaml
+      - kernel/project/sources/manifest.yaml
+    expected_facts:
+      - required_in_project files must be physically present in published/
+      - external references must not be treated as bundled unless mirrored
+      - the pack is invalid if required files are missing
+    forbidden_claims:
+      - resolved refs imply bundled presence
+      - external references may be used as in-pack facts without qualification
+
+  - id: lv6_publication_policy_boundary
+    question: Who owns publication policy, and should this pack perform publication actions directly?
+    required_refs:
+      - kernel/project/manifests/publication.yaml
+      - kernel/project/AGENTS.md
+    expected_facts:
+      - publication policy is kernel-owned
+      - the pack is retrieval-oriented, not an execution surface
+      - publication mechanics are out of scope for the pack itself
+    forbidden_claims:
+      - the pack should publish authority files directly
+      - publication actions belong in AGENTS.md behavior
+
+  - id: lv7_bundle_pointers
+    question: Where should an operator look to identify the currently published bundle, release metadata, and fingerprints?
+    required_refs:
+      - kernel/project/metadata.yaml
+      - kernel/project/bundle/release.json
+      - kernel/project/bundle/fingerprints.json
+    expected_facts:
+      - project-pack.md is the current pack pointer
+      - release and fingerprint artifacts remain local bundle outputs
+      - Drive current and release targets are tracked in metadata.yaml
+      - published/ is markdown-first with test stubs for json and yaml
+    forbidden_claims:
+      - release or fingerprints are mirrored into the ChatGPT-facing pack
+      - only the zip archive matters

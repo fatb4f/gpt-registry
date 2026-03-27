@@ -1,0 +1,21 @@
+set shell := ["bash", "-lc"]
+
+default:
+  @just --list
+
+build:
+  ./bundle/build.sh
+
+render-md:
+  ./bundle/build.sh
+
+validate-logic:
+  ./bundle/validate_logic.py
+
+archive:
+  ./bundle/archive.sh
+
+publish:
+  ./bundle/publish.sh
+
+bundle: build validate-logic archive

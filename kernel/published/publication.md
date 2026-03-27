@@ -1,0 +1,61 @@
+# Publication Manifest
+
+Source: `manifests/publication.yaml`
+
+```yaml
+manifest:
+  id: publication
+  type: publication_policy_registry
+  version: 0.1.0
+  status: active
+  owner: _404
+  last_updated: 2026-03-25
+
+scope:
+  in_scope:
+    - publication modes
+    - publish eligibility
+    - authority-bearing vs generated artifact rules
+    - required evidence for publish
+  out_of_scope:
+    - content generation
+    - manifest routing
+
+authority:
+  canonical_sources:
+    - kernel/project/meta-manifest.yaml
+    - kernel/project/manifests/publication.yaml
+  source_priority:
+    - kernel/project/meta-manifest.yaml
+    - kernel/project/manifests/publication.yaml
+  conflict_resolution: higher priority wins; publication conflicts require explicit review
+
+publication:
+  modes:
+    - direct_bundle_publish
+    - branch_commit_pr
+    - no_publish
+  default_mode: branch_commit_pr
+  direct_publish_allowed_if:
+    - artifact_class in ["generated_bundle", "derived_report", "cacheable_index"]
+    - trust_boundary == "non_authority"
+    - validation_status == "pass"
+    - fingerprint_present == true
+    - human_gate_required == false
+  direct_publish_forbidden_if:
+    - artifact_class in ["root_manifest", "policy", "schema", "authority_index"]
+    - changes_authority == true
+    - changes_gate_logic == true
+    - manifest_explicit_review_required == true
+
+contracts:
+  schema_refs:
+    - ref: schemas/kernel.publication.schema.json
+  policy_refs:
+    - ref: policy/kernel/publication.policy.yaml
+
+freshness:
+  review_cadence: on-change
+  staleness_policy: publication rule changes invalidate allowlists
+
+```

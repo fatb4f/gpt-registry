@@ -1,0 +1,58 @@
+{
+  "artifact_type": "gpt_project_logic_validation_report",
+  "artifact_version": "0.1.0",
+  "suite_id": "kernel-registry-logic-validation",
+  "case_count": 7,
+  "status": "PASS",
+  "cases": [
+    {
+      "id": "lv1_root_router",
+      "required_ref_count": 2,
+      "expected_fact_count": 3,
+      "forbidden_claim_count": 2,
+      "status": "VALID"
+    },
+    {
+      "id": "lv2_bundle_boundary",
+      "required_ref_count": 3,
+      "expected_fact_count": 3,
+      "forbidden_claim_count": 2,
+      "status": "VALID"
+    },
+    {
+      "id": "lv3_source_use_order",
+      "required_ref_count": 3,
+      "expected_fact_count": 5,
+      "forbidden_claim_count": 2,
+      "status": "VALID"
+    },
+    {
+      "id": "lv4_instruction_authority_split",
+      "required_ref_count": 3,
+      "expected_fact_count": 4,
+      "forbidden_claim_count": 2,
+      "status": "VALID"
+    },
+    {
+      "id": "lv5_project_source_contract",
+      "required_ref_count": 2,
+      "expected_fact_count": 3,
+      "forbidden_claim_count": 2,
+      "status": "VALID"
+    },
+    {
+      "id": "lv6_publication_policy_boundary",
+      "required_ref_count": 2,
+      "expected_fact_count": 3,
+      "forbidden_claim_count": 2,
+      "status": "VALID"
+    },
+    {
+      "id": "lv7_bundle_pointers",
+      "required_ref_count": 3,
+      "expected_fact_count": 4,
+      "forbidden_claim_count": 2,
+      "status": "VALID"
+    }
+  ]
+}

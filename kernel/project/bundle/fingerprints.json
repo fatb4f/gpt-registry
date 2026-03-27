@@ -1,0 +1,55 @@
+{
+  "artifact_type": "gpt_project_pack_fingerprints",
+  "artifact_version": "0.1.0",
+  "entries": [
+    {
+      "path": "published/AGENTS.md",
+      "sha256": "68f0222d88c5285057f0d6cb672f4b4277bdf3740445a7ddf7d694492860be5f"
+    },
+    {
+      "path": "published/contracts.md",
+      "sha256": "0d7e5f0486673ff0660a47c4d97a58c62d0b9631a5e51ce5419b11aced496e43"
+    },
+    {
+      "path": "published/decision-register.md",
+      "sha256": "2d24a7f01c90d77b1743fd85d11dfdf6abd90492809d43b3eb96fa2aef8112ea"
+    },
+    {
+      "path": "published/format-test.json",
+      "sha256": "34da7855dcb85755c7e5c9421a2ec7aa1bc88a83455461ede07e6e49d77725c6"
+    },
+    {
+      "path": "published/format-test.yaml",
+      "sha256": "6635ebf9e4a6a10c9e4106e1d701a85c24112af2fb417baedf0354772222b95a"
+    },
+    {
+      "path": "published/glossary.md",
+      "sha256": "0cc97808ee9333363556f5a164bc91d4deae1da0f4b7e786eb895a017a89c521"
+    },
+    {
+      "path": "published/lineage.md",
+      "sha256": "d6b51adc049d2acfc31e7cb92e215b8e88bc4666c6156e6ceddaa7601f64eb72"
+    },
+    {
+      "path": "published/manifest.md",
+      "sha256": "63af447bc1494b4a54afbc3a3ca0a118ca2f0ae0550a096bc3cb3b3434440401"
+    },
+    {
+      "path": "published/meta-manifest.md",
+      "sha256": "adbd6c8e9f0e9c7e9a7b3b28072113b5d3b6c3003a55a401b60ea58bc111c75b"
+    },
+    {
+      "path": "published/project-pack.md",
+      "sha256": "dcaa70a59d6f53907119194fcc1c8e8451b2c6e79d7b50c662d24fdbc0776606"
+    },
+    {
+      "path": "published/publication.md",
+      "sha256": "1610e3a5f7bcfe5592906730830862a32846a1b22c8e2b9c8e8c49fd39c90b95"
+    },
+    {
+      "path": "published/refs.md",
+      "sha256": "7784aae7bcc6e08aa3bbf6b295f59e798642294950c6309e0b4aae7d481bc355"
+    }
+  ],
+  "generated_at": "2026-03-27T20:37:58Z"
+}

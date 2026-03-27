@@ -1,0 +1,59 @@
+# Decision Register Manifest
+
+Source: `manifests/decision-register.yaml`
+
+```yaml
+manifest:
+  id: decision-register
+  type: decision_registry
+  version: 0.1.0
+  status: active
+  owner: _404
+  last_updated: 2026-03-25
+
+scope:
+  in_scope:
+    - adr index
+    - open questions
+    - non-goals
+    - active risk notes
+  out_of_scope:
+    - artifact generation
+    - publication mechanics
+
+authority:
+  canonical_sources:
+    - kernel/project/meta-manifest.yaml
+    - kernel/project/manifests/decision-register.yaml
+  source_priority:
+    - kernel/project/meta-manifest.yaml
+    - kernel/project/manifests/decision-register.yaml
+  conflict_resolution: higher priority wins; unresolved decisions remain open
+
+decision_register:
+  adr_index: []
+  open_questions:
+    - id: oq-visible-root-workflow-surface
+      status: resolved
+      summary: >
+        Whether the visible-root pack should expose a standalone workflows
+        manifest.
+      resolution: >
+        No. Workflow expectations for the published retrieval bundle are folded
+        into AGENTS.md and are not a separate required root artifact.
+  non_goals: []
+  active_risks:
+    - id: ar-source-precedence-drift
+      status: active
+      summary: >
+        Source precedence can drift if AGENTS.md is treated as authority rather
+        than behavioral guidance.
+      mitigation: >
+        Meta-manifest remains the authority router. AGENTS.md is behavioral
+        guidance only and is excluded from authority precedence ordering.
+
+freshness:
+  review_cadence: on-change
+  staleness_policy: decisions must be refreshed when linked contracts change
+
+```

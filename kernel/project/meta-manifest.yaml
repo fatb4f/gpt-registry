@@ -1,0 +1,88 @@
+project:
+  id: kernel
+  name: Kernel
+  version: 0.1.0
+  status: active
+  owners:
+    - _404
+  last_updated: 2026-03-25
+
+purpose:
+  summary: >
+    RAG registry bundle for the canonical kernel repository at `fatb4f/kernel`.
+    This pack is a retrieval slice of kernel authority, not the full kernel
+    itself. It exposes routed manifests, contracts, publication, lineage, and
+    decision records for ChatGPT retrieval.
+
+scope:
+  in_scope:
+    - retrieval bundle routing to fatb4f/kernel
+    - registry routing
+    - canonical source priority
+    - scoped manifest linking
+    - contracts and schemas
+    - publication policy
+    - lineage and decision pointers
+  out_of_scope:
+    - full kernel repository authority beyond mirrored and referenced sources
+    - execution workspace behavior
+    - artifact publication mechanics
+    - unrelated repo concerns
+
+authority:
+  root: kernel
+  canonical_repo: fatb4f/kernel
+  bundle_class: rag_registry
+  source_priority:
+    - kernel/project/meta-manifest.yaml
+    - kernel/project/sources/manifest.yaml
+    - kernel/project/manifests/contracts.yaml
+    - kernel/project/manifests/publication.yaml
+    - kernel/project/manifests/lineage.yaml
+    - kernel/project/manifests/glossary.yaml
+    - kernel/project/manifests/decision-register.yaml
+  conflict_rule: >
+    Higher-priority sources win. Unresolved conflicts must be reported and
+    cannot be silently inferred.
+
+retrieval:
+  bundle_boundary_note: >
+    Only files physically present in this bundle are in-pack retrieval sources.
+    External refs point back to fatb4f/kernel or other declared surfaces and
+    must not be treated as mirrored content.
+  canonical_scope_set:
+    - kernel/project/meta-manifest.yaml
+    - kernel/project/sources/manifest.yaml
+    - kernel/project/manifests/contracts.yaml
+    - kernel/project/manifests/publication.yaml
+    - kernel/project/manifests/lineage.yaml
+    - kernel/project/manifests/glossary.yaml
+    - kernel/project/manifests/decision-register.yaml
+  reference_only_sources:
+    - README.md
+    - AGENTS.md
+
+linked_manifests:
+  - id: sources
+    ref: kernel/project/sources/manifest.yaml
+  - id: contracts
+    ref: kernel/project/manifests/contracts.yaml
+  - id: publication
+    ref: kernel/project/manifests/publication.yaml
+  - id: lineage
+    ref: kernel/project/manifests/lineage.yaml
+  - id: glossary
+    ref: kernel/project/manifests/glossary.yaml
+  - id: decision-register
+    ref: kernel/project/manifests/decision-register.yaml
+
+change_control:
+  freshness:
+    review_cadence: on-change
+    stale_when: manifest_refs_change
+  compatibility:
+    versioning_rule: semantic
+    deprecation_policy: keep prior refs until replaced
+  ui_instruction_leverage: >
+    ChatGPT Project UI instructions may add pointer guidance into this bundle,
+    but they do not replace the canonical Git-backed instruction source.

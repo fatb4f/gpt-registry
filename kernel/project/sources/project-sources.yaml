@@ -1,0 +1,52 @@
+project_sources:
+  project_id: kernel
+  pack_id: kernel-project-pack
+  pack_version: 0.1.0
+  delivery_target: gdrive:OpenAI/ChatGPT/kernel/current
+  sync_mode: mirrored_release_bundle
+  status: active
+  path_base: published/
+
+  required_in_project:
+    - AGENTS.md
+    - meta-manifest.md
+    - manifest.md
+    - contracts.md
+    - publication.md
+    - lineage.md
+    - glossary.md
+    - decision-register.md
+    - project-pack.md
+
+  optional_in_project:
+    - refs.md
+    - format-test.json
+    - format-test.yaml
+
+  behavioral_sources:
+    - AGENTS.md
+
+  external_references:
+    - schemas/kernel.contract.schema.json
+    - schemas/kernel.workflow.schema.json
+    - schemas/kernel.publication.schema.json
+    - schemas/kernel.lineage.schema.json
+    - schemas/kernel.docking-contract.schema.json
+    - policy/kernel/contracts.policy.yaml
+    - policy/kernel/workflows.policy.yaml
+    - policy/kernel/publication.policy.yaml
+    - policy/kernel/lineage.policy.yaml
+    - bundle/kernel-contract-pack.json
+    - bundle/kernel-workflow-pack.json
+
+  excluded_from_project:
+    - raw_repo_history
+    - unrelated_repo_docs
+    - transient_build_outputs
+
+  validity_rules:
+    - all required_in_project files must be physically present in published/
+    - all paths in required_in_project and optional_in_project are relative to published/
+    - external_references must not be treated as bundled unless mirrored
+    - pack is invalid if any required_in_project file is missing
+    - AGENTS.md is canonical behavioral guidance inside the project source pack
