@@ -1,7 +1,7 @@
 refs:
-  kernel_sources_manifest: kernel/sources/manifest.yaml
-  kernel_meta_manifest: kernel/meta-manifest.yaml
   docking_contract: artifact-genai-loop/docking-contract.yaml
-  source_manifest: artifact-genai-loop/sources/manifest.yaml
-  instruction_block: artifact-genai-loop/instructions.md
   docking_contract_schema: schemas/kernel.docking-contract.schema.json
+  instruction_block: artifact-genai-loop/instructions.md
+  kernel_meta_manifest: kernel/meta-manifest.yaml
+  kernel_sources_manifest: kernel/sources/manifest.yaml
+  source_manifest: artifact-genai-loop/sources/manifest.yaml

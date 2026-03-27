@@ -1,0 +1,242 @@
+{
+  "project": {
+    "id": "artifact-genai-loop",
+    "name": "Artifact GenAI Loop Sidecar",
+    "version": "0.1.0",
+    "status": "active",
+    "owners": [
+      "_404"
+    ],
+    "last_updated": "2026-03-25"
+  },
+  "purpose": {
+    "summary": "Execution and publication plane for generating artifact bundles from kernel-issued resolved scope sets."
+  },
+  "scope": {
+    "in_scope": [
+      "packet generation",
+      "bundle assembly",
+      "validation evidence",
+      "publication recommendation",
+      "scoped artifact publication"
+    ],
+    "out_of_scope": [
+      "kernel authority changes",
+      "scope expansion",
+      "policy creation",
+      "trust-root mutation"
+    ]
+  },
+  "authority": {
+    "root": "kernel",
+    "dependency_model": "The sidecar is independent as a project but not authority-independent. It may only operate on kernel-issued resolved scope sets.",
+    "source_priority": [
+      "artifact-genai-loop/docking-contract.yaml",
+      "artifact-genai-loop/sources/manifest.yaml",
+      "artifact-genai-loop/instructions.md",
+      "kernel-issued resolved scope set"
+    ],
+    "conflict_rule": "Kernel-issued scope wins over local inference. Unresolved conflicts must be reported and must not be inferred away."
+  },
+  "retrieval": {
+    "admissible_inputs": [
+      "artifact-genai-loop/docking-contract.yaml",
+      "artifact-genai-loop/sources/manifest.yaml",
+      "kernel-issued resolved scope set",
+      "approved examples"
+    ],
+    "reference_only_sources": [
+      "README.md",
+      "AGENTS.md"
+    ]
+  },
+  "linked_manifests": [
+    {
+      "id": "docking-contract",
+      "ref": "artifact-genai-loop/docking-contract.yaml"
+    },
+    {
+      "id": "sources",
+      "ref": "artifact-genai-loop/sources/manifest.yaml"
+    },
+    {
+      "id": "instructions",
+      "ref": "artifact-genai-loop/instructions.md"
+    }
+  ],
+  "change_control": {
+    "freshness": {
+      "review_cadence": "on-change",
+      "stale_when": "kernel_scope_hash_changes"
+    },
+    "compatibility": {
+      "versioning_rule": "semantic",
+      "deprecation_policy": "keep prior docking contracts until superseded"
+    }
+  },
+  "instructions": {
+    "working_set": "Use the kernel-issued resolved scope set as the only admissible working set.",
+    "behavior": [
+      "Generate artifacts only from kernel-selected sources and contracts.",
+      "Do not widen scope.",
+      "Do not override kernel authority or publication policy.",
+      "Validate before recommending publication.",
+      "Emit validation evidence, fingerprint records, and a publication recommendation.",
+      "Stop and report conflicts, missing inputs, or stale scope sets.",
+      "Treat kernel-issued scope as the only authority-bearing context."
+    ],
+    "output_contract": [
+      "facts",
+      "validation",
+      "conflicts",
+      "recommendation",
+      "next_action",
+      "generated_artifacts",
+      "source_refs",
+      "fingerprint"
+    ],
+    "style": [
+      "Technical, concise, and structured.",
+      "Prefer contract-shaped outputs over prose.",
+      "Distinguish facts, inference, and recommendation."
+    ],
+    "publication_policy": [
+      "Use direct bundle publish only when the docking contract allows it.",
+      "Use branch/commit/PR for authority-bearing or policy-bearing artifacts.",
+      "Never publish outside kernel policy."
+    ]
+  },
+  "agents": {
+    "title": "Artifact GenAI Loop Sidecar Instructions",
+    "intro": "This file defines the pending sidecar requirements and operating rules before the dedicated ChatGPT project is created.",
+    "summary": "The sidecar project is the delegated plan and packet artifact generating pipeline to avoid agent token burn.",
+    "operating_rules": [
+      "Use only the kernel-issued resolved scope set as the working set.",
+      "Do not widen scope or override kernel policy.",
+      "Generate artifacts only from admitted sources and contracts.",
+      "Validate before recommending publication.",
+      "Emit validation evidence, fingerprints, and a publication recommendation.",
+      "Stop on missing inputs, stale scope sets, or authority conflicts.",
+      "Consume relevant kernel policy via symlinked files or sparse checkout until the dedicated ChatGPT project exists."
+    ],
+    "output_contract": [
+      "facts",
+      "validation",
+      "conflicts",
+      "recommendation",
+      "next_action",
+      "generated_artifacts",
+      "source_refs",
+      "fingerprint"
+    ],
+    "publication_policy": [
+      "Use direct bundle publish only when the kernel docking contract allows it.",
+      "Use branch, commit, and pull request paths for authority-bearing or policy-bearing artifacts.",
+      "Never publish outside kernel policy."
+    ],
+    "constraints": [
+      "Keep the sidecar shallow and removable.",
+      "Never establish or mutate authority.",
+      "Treat the docking contract as the admissible run envelope."
+    ]
+  },
+  "sources_manifest": {
+    "project_id": "artifact-genai-loop",
+    "source_set_id": "as-2026-03-25-001",
+    "resolved_from": "kernel-issued docking contract",
+    "included_refs": [
+      "kernel/sources/manifest.yaml",
+      "kernel/meta-manifest.yaml",
+      "kernel/manifests/contracts.yaml",
+      "kernel/manifests/workflows.yaml",
+      "kernel/manifests/publication.yaml",
+      "kernel/manifests/lineage.yaml",
+      "kernel/manifests/glossary.yaml",
+      "kernel/manifests/decision-register.yaml",
+      "schemas/kernel.docking-contract.schema.json"
+    ],
+    "source_purpose": [
+      "artifact generation",
+      "validation evidence",
+      "publication recommendation"
+    ],
+    "excluded_refs": [
+      "authority-bearing changes",
+      "kernel policy edits",
+      "kernel scope expansion"
+    ]
+  },
+  "refs": {
+    "kernel_sources_manifest": "kernel/sources/manifest.yaml",
+    "kernel_meta_manifest": "kernel/meta-manifest.yaml",
+    "docking_contract": "artifact-genai-loop/docking-contract.yaml",
+    "source_manifest": "artifact-genai-loop/sources/manifest.yaml",
+    "instruction_block": "artifact-genai-loop/instructions.md",
+    "docking_contract_schema": "schemas/kernel.docking-contract.schema.json"
+  },
+  "docking_contract": {
+    "contract_version": 1,
+    "sidecar_project_id": "artifact-genai-loop",
+    "kernel_source_root": "kernel",
+    "resolved_scope_set": {
+      "scope_set_id": "ks-2026-03-25-001",
+      "manifest_refs": [
+        "kernel/meta-manifest.yaml",
+        "kernel/manifests/contracts.yaml",
+        "kernel/manifests/workflows.yaml",
+        "kernel/manifests/publication.yaml",
+        "kernel/manifests/lineage.yaml",
+        "kernel/manifests/glossary.yaml",
+        "kernel/manifests/decision-register.yaml"
+      ],
+      "contract_refs": [
+        "schemas/kernel.contract.schema.json",
+        "schemas/kernel.workflow.schema.json",
+        "schemas/kernel.publication.schema.json",
+        "schemas/kernel.lineage.schema.json",
+        "schemas/kernel.docking-contract.schema.json"
+      ],
+      "workflow_profile_ref": "kernel/manifests/workflows.yaml",
+      "publication_policy_ref": "kernel/manifests/publication.yaml",
+      "example_bundle_refs": []
+    },
+    "artifact_request": {
+      "artifact_class": "plan_packet_bundle",
+      "required_outputs": [
+        "packet",
+        "validation_evidence",
+        "fingerprint_record",
+        "publication_recommendation"
+      ],
+      "prohibited_outputs": [
+        "authority_manifest_edits",
+        "policy_edits",
+        "schema_edits"
+      ]
+    },
+    "trust_boundary": {
+      "authority_bearing": false,
+      "human_gate_required": false,
+      "direct_publish_allowed": true
+    },
+    "freshness": {
+      "issued_at": "2026-03-25",
+      "expires_at": "2026-03-28",
+      "stale_after": "72h",
+      "linkage_status": "pending_chatgpt_project_creation",
+      "kernel_policy_ingest_mode": "symlink_or_sparse_checkout"
+    },
+    "invariants": [
+      "kernel decides truth",
+      "sidecar executes within declared bounds",
+      "no scope widening",
+      "no policy override",
+      "no publication outside kernel policy"
+    ],
+    "fingerprint": {
+      "scope_hash": "sha256:<scope-hash>",
+      "policy_hash": "sha256:<policy-hash>",
+      "schema_hash": "sha256:<schema-hash>"
+    }
+  }
+}
