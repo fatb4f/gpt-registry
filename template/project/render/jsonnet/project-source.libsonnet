@@ -56,14 +56,15 @@ local agentsMd =
   'docking-contract.yaml': yamlFile([
     ['docking_contract', {
       contract_version: p.docking_contract.contract_version,
-      sidecar_project_id: p.docking_contract.sidecar_project_id,
-      kernel_source_root: p.docking_contract.kernel_source_root,
-      resolved_scope_set: p.docking_contract.resolved_scope_set,
-      artifact_request: p.docking_contract.artifact_request,
+      registry_entry_id: p.docking_contract.registry_entry_id,
+      canonical_repo: p.docking_contract.canonical_repo,
+      execution_surface_root: p.docking_contract.execution_surface_root,
+      execution_surface_refs: p.docking_contract.execution_surface_refs,
+      bundle_release: p.docking_contract.bundle_release,
+      review_and_realization: p.docking_contract.review_and_realization,
       trust_boundary: p.docking_contract.trust_boundary,
       freshness: p.docking_contract.freshness,
       invariants: p.docking_contract.invariants,
-      fingerprint: p.docking_contract.fingerprint,
     }],
   ]),
 
@@ -79,13 +80,6 @@ local agentsMd =
   ]),
 
   'sources/refs.yaml': yamlFile([
-    ['refs', {
-      kernel_sources_manifest: p.refs.kernel_sources_manifest,
-      kernel_meta_manifest: p.refs.kernel_meta_manifest,
-      docking_contract: p.refs.docking_contract,
-      source_manifest: p.refs.source_manifest,
-      instruction_block: p.refs.instruction_block,
-      docking_contract_schema: p.refs.docking_contract_schema,
-    }],
+    ['refs', p.refs],
   ]),
 }

@@ -1,30 +1,29 @@
-Use the kernel-issued resolved scope set as the only admissible working set.
+Use this entry only as a registry and handoff surface to the kernel execution plane.
 
 Behavior:
-- Generate artifacts only from kernel-selected sources and contracts.
-- Do not widen scope.
-- Do not override kernel authority or publication policy.
-- Validate before recommending publication.
-- Emit validation evidence, fingerprint records, and a publication recommendation.
-- Stop and report conflicts, missing inputs, or stale scope sets.
-- Treat kernel-issued scope as the only authority-bearing context.
+- Treat this directory as registry-only scope.
+- Resolve execution semantics from kernel/generated/schemas/chatgpt-pipeline.
+- Use declared tarball refs as handoff payload pointers, not as in-place expanded source trees.
+- Do not infer local execution capability from this registry entry alone.
+- Stop and report missing bundle refs, stale release refs, or mismatched execution-surface pointers.
+- Treat kernel-issued execution artifacts as the only authority-bearing execution context.
 
 Output contract:
 1. facts
-2. validation
-3. conflicts
-4. recommendation
-5. next_action
-6. generated_artifacts
-7. source_refs
-8. fingerprint
+2. execution_surface_ref
+3. bundle_ref
+4. review_boundary
+5. realization_boundary
+6. source_refs
+7. staleness
+8. next_action
 
 Style:
 - Technical, concise, and structured.
-- Prefer contract-shaped outputs over prose.
-- Distinguish facts, inference, and recommendation.
+- Prefer pointer-shaped outputs over prose.
+- Distinguish registry facts from execution-plane facts.
 
 Publication policy:
-- Use direct bundle publish only when the docking contract allows it.
-- Use branch/commit/PR for authority-bearing or policy-bearing artifacts.
-- Never publish outside kernel policy.
+- Do not execute from this registry entry.
+- Treat tarball refs as released handoff artifacts.
+- Keep execution and realization semantics in the kernel execution plane.

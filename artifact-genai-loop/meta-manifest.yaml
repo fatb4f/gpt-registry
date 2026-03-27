@@ -1,48 +1,49 @@
 project:
   id: artifact-genai-loop
-  last_updated: '2026-03-25'
-  name: Artifact GenAI Loop Sidecar
+  last_updated: '2026-03-27'
+  name: Artifact GenAI Loop Registry Entry
   owners:
     - _404
   status: active
   version: 0.1.0
 purpose:
-  summary: Execution and publication plane for generating artifact bundles from kernel-issued
-    resolved scope sets.
+  summary: Registry-only handoff entry for the ChatGPT-owned artifact generation loop
+    execution plane.
 scope:
   in_scope:
-    - packet generation
-    - bundle assembly
-    - validation evidence
-    - publication recommendation
-    - scoped artifact publication
+    - execution plane discovery
+    - tarball handoff pointers
+    - bundle boundary description
+    - review and realization boundary description
+    - source routing to kernel execution artifacts
   out_of_scope:
-    - kernel authority changes
-    - scope expansion
-    - policy creation
-    - trust-root mutation
+    - local execution
+    - packet generation
+    - publication actions
+    - authority mutation
+    - runtime policy edits
 authority:
-  conflict_rule: Kernel-issued scope wins over local inference. Unresolved conflicts
-    must be reported and must not be inferred away.
-  dependency_model: The sidecar is independent as a project but not authority-independent.
-    It may only operate on kernel-issued resolved scope sets.
+  conflict_rule: Kernel execution-surface artifacts win over local summary text. Unresolved
+    conflicts must be surfaced rather than inferred away.
+  dependency_model: This entry is registry-only. Canonical execution semantics live
+    in fatb4f/kernel under the chatgpt-pipeline execution surface.
   root: kernel
   source_priority:
     - artifact-genai-loop/docking-contract.yaml
     - artifact-genai-loop/sources/manifest.yaml
     - artifact-genai-loop/instructions.md
-    - kernel-issued resolved scope set
+    - kernel/generated/schemas/chatgpt-pipeline
 retrieval:
   admissible_inputs:
     - artifact-genai-loop/docking-contract.yaml
     - artifact-genai-loop/sources/manifest.yaml
-    - kernel-issued resolved scope set
-    - approved examples
+    - kernel/generated/schemas/chatgpt-pipeline
+    - released tarball bundle refs
   reference_only_sources:
     - README.md
     - AGENTS.md
 linked_manifests:
-  - id: docking-contract
+  - id: handoff-contract
     ref: artifact-genai-loop/docking-contract.yaml
   - id: sources
     ref: artifact-genai-loop/sources/manifest.yaml
@@ -50,8 +51,9 @@ linked_manifests:
     ref: artifact-genai-loop/instructions.md
 change_control:
   compatibility:
-    deprecation_policy: keep prior docking contracts until superseded
+    deprecation_policy: keep prior handoff refs until superseded by a newer execution
+      bundle release
     versioning_rule: semantic
   freshness:
-    review_cadence: on-change
-    stale_when: kernel_scope_hash_changes
+    review_cadence: on-handoff-update
+    stale_when: execution_surface_hash_changes

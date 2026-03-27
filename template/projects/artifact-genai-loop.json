@@ -1,49 +1,50 @@
 {
   "project": {
     "id": "artifact-genai-loop",
-    "name": "Artifact GenAI Loop Sidecar",
+    "name": "Artifact GenAI Loop Registry Entry",
     "version": "0.1.0",
     "status": "active",
     "owners": [
       "_404"
     ],
-    "last_updated": "2026-03-25"
+    "last_updated": "2026-03-27"
   },
   "purpose": {
-    "summary": "Execution and publication plane for generating artifact bundles from kernel-issued resolved scope sets."
+    "summary": "Registry-only handoff entry for the ChatGPT-owned artifact generation loop execution plane."
   },
   "scope": {
     "in_scope": [
-      "packet generation",
-      "bundle assembly",
-      "validation evidence",
-      "publication recommendation",
-      "scoped artifact publication"
+      "execution plane discovery",
+      "tarball handoff pointers",
+      "bundle boundary description",
+      "review and realization boundary description",
+      "source routing to kernel execution artifacts"
     ],
     "out_of_scope": [
-      "kernel authority changes",
-      "scope expansion",
-      "policy creation",
-      "trust-root mutation"
+      "local execution",
+      "packet generation",
+      "publication actions",
+      "authority mutation",
+      "runtime policy edits"
     ]
   },
   "authority": {
     "root": "kernel",
-    "dependency_model": "The sidecar is independent as a project but not authority-independent. It may only operate on kernel-issued resolved scope sets.",
+    "dependency_model": "This entry is registry-only. Canonical execution semantics live in fatb4f/kernel under the chatgpt-pipeline execution surface.",
     "source_priority": [
       "artifact-genai-loop/docking-contract.yaml",
       "artifact-genai-loop/sources/manifest.yaml",
       "artifact-genai-loop/instructions.md",
-      "kernel-issued resolved scope set"
+      "kernel/generated/schemas/chatgpt-pipeline"
     ],
-    "conflict_rule": "Kernel-issued scope wins over local inference. Unresolved conflicts must be reported and must not be inferred away."
+    "conflict_rule": "Kernel execution-surface artifacts win over local summary text. Unresolved conflicts must be surfaced rather than inferred away."
   },
   "retrieval": {
     "admissible_inputs": [
       "artifact-genai-loop/docking-contract.yaml",
       "artifact-genai-loop/sources/manifest.yaml",
-      "kernel-issued resolved scope set",
-      "approved examples"
+      "kernel/generated/schemas/chatgpt-pipeline",
+      "released tarball bundle refs"
     ],
     "reference_only_sources": [
       "README.md",
@@ -52,7 +53,7 @@
   },
   "linked_manifests": [
     {
-      "id": "docking-contract",
+      "id": "handoff-contract",
       "ref": "artifact-genai-loop/docking-contract.yaml"
     },
     {
@@ -66,177 +67,154 @@
   ],
   "change_control": {
     "freshness": {
-      "review_cadence": "on-change",
-      "stale_when": "kernel_scope_hash_changes"
+      "review_cadence": "on-handoff-update",
+      "stale_when": "execution_surface_hash_changes"
     },
     "compatibility": {
       "versioning_rule": "semantic",
-      "deprecation_policy": "keep prior docking contracts until superseded"
+      "deprecation_policy": "keep prior handoff refs until superseded by a newer execution bundle release"
     }
   },
   "instructions": {
-    "working_set": "Use the kernel-issued resolved scope set as the only admissible working set.",
+    "working_set": "Use this entry only as a registry and handoff surface to the kernel execution plane.",
     "behavior": [
-      "Generate artifacts only from kernel-selected sources and contracts.",
-      "Do not widen scope.",
-      "Do not override kernel authority or publication policy.",
-      "Validate before recommending publication.",
-      "Emit validation evidence, fingerprint records, and a publication recommendation.",
-      "Stop and report conflicts, missing inputs, or stale scope sets.",
-      "Treat kernel-issued scope as the only authority-bearing context."
+      "Treat this directory as registry-only scope.",
+      "Resolve execution semantics from kernel/generated/schemas/chatgpt-pipeline.",
+      "Use declared tarball refs as handoff payload pointers, not as in-place expanded source trees.",
+      "Do not infer local execution capability from this registry entry alone.",
+      "Stop and report missing bundle refs, stale release refs, or mismatched execution-surface pointers.",
+      "Treat kernel-issued execution artifacts as the only authority-bearing execution context."
     ],
     "output_contract": [
       "facts",
-      "validation",
-      "conflicts",
-      "recommendation",
-      "next_action",
-      "generated_artifacts",
+      "execution_surface_ref",
+      "bundle_ref",
+      "review_boundary",
+      "realization_boundary",
       "source_refs",
-      "fingerprint"
+      "staleness",
+      "next_action"
     ],
     "style": [
       "Technical, concise, and structured.",
-      "Prefer contract-shaped outputs over prose.",
-      "Distinguish facts, inference, and recommendation."
+      "Prefer pointer-shaped outputs over prose.",
+      "Distinguish registry facts from execution-plane facts."
     ],
     "publication_policy": [
-      "Use direct bundle publish only when the docking contract allows it.",
-      "Use branch/commit/PR for authority-bearing or policy-bearing artifacts.",
-      "Never publish outside kernel policy."
+      "Do not execute from this registry entry.",
+      "Treat tarball refs as released handoff artifacts.",
+      "Keep execution and realization semantics in the kernel execution plane."
     ]
   },
   "agents": {
-    "title": "Artifact GenAI Loop Sidecar Instructions",
-    "intro": "This file defines the pending sidecar requirements and operating rules before the dedicated ChatGPT project is created.",
-    "summary": "The sidecar project is the delegated plan and packet artifact generating pipeline to avoid agent token burn.",
+    "title": "Artifact GenAI Loop Registry Instructions",
+    "intro": "This file defines the registry-only handoff requirements for the artifact generation loop.",
+    "summary": "The actual execution plane lives in fatb4f/kernel under generated/schemas/chatgpt-pipeline. This entry only routes retrieval and handoff.",
     "operating_rules": [
-      "Use only the kernel-issued resolved scope set as the working set.",
-      "Do not widen scope or override kernel policy.",
-      "Generate artifacts only from admitted sources and contracts.",
-      "Validate before recommending publication.",
-      "Emit validation evidence, fingerprints, and a publication recommendation.",
-      "Stop on missing inputs, stale scope sets, or authority conflicts.",
-      "Consume relevant kernel policy via symlinked files or sparse checkout until the dedicated ChatGPT project exists."
+      "Use this directory only for registry and handoff interpretation.",
+      "Resolve execution logic from kernel/generated/schemas/chatgpt-pipeline.",
+      "Treat declared tarball refs as payload pointers for handoff, not as expanded local sources.",
+      "Do not widen scope beyond the declared execution surface and bundle refs.",
+      "Stop on missing release refs, stale bundle refs, or authority conflicts.",
+      "Never present this registry entry as the execution plane itself."
     ],
     "output_contract": [
       "facts",
-      "validation",
-      "conflicts",
-      "recommendation",
-      "next_action",
-      "generated_artifacts",
+      "execution_surface_ref",
+      "bundle_ref",
+      "review_boundary",
+      "realization_boundary",
       "source_refs",
-      "fingerprint"
+      "staleness",
+      "next_action"
     ],
     "publication_policy": [
-      "Use direct bundle publish only when the kernel docking contract allows it.",
-      "Use branch, commit, and pull request paths for authority-bearing or policy-bearing artifacts.",
-      "Never publish outside kernel policy."
+      "Update this entry only when execution-surface refs or bundle refs change.",
+      "Do not publish execution outputs from this directory.",
+      "Never override kernel execution or gate policy."
     ],
     "constraints": [
-      "Keep the sidecar shallow and removable.",
-      "Never establish or mutate authority.",
-      "Treat the docking contract as the admissible run envelope."
+      "Registry-only scope.",
+      "No local execution semantics.",
+      "No authority mutation.",
+      "Treat the docking contract as a handoff pointer contract."
     ]
   },
   "sources_manifest": {
     "project_id": "artifact-genai-loop",
-    "source_set_id": "as-2026-03-25-001",
-    "resolved_from": "kernel-issued docking contract",
+    "source_set_id": "agl-reg-2026-03-27-001",
+    "resolved_from": "kernel execution surface release",
     "included_refs": [
-      "kernel/sources/manifest.yaml",
-      "kernel/meta-manifest.yaml",
-      "kernel/manifests/contracts.yaml",
-      "kernel/manifests/workflows.yaml",
-      "kernel/manifests/publication.yaml",
-      "kernel/manifests/lineage.yaml",
-      "kernel/manifests/glossary.yaml",
-      "kernel/manifests/decision-register.yaml",
-      "schemas/kernel.docking-contract.schema.json"
+      "kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.packet.pipeline.manifest.json",
+      "kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.gate.policy.json",
+      "kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.execution.policy.json",
+      "kernel/generated/schemas/chatgpt-pipeline/packet/packet.definition.schema.json",
+      "kernel/generated/schemas/chatgpt-pipeline/packet/packet.review.request.schema.json",
+      "kernel/generated/state/admission/chatgpt-problem-set-runner",
+      "released tarball bundle refs"
     ],
     "source_purpose": [
-      "artifact generation",
-      "validation evidence",
-      "publication recommendation"
+      "execution plane discovery",
+      "handoff routing",
+      "bundle release lookup"
     ],
     "excluded_refs": [
-      "authority-bearing changes",
-      "kernel policy edits",
-      "kernel scope expansion"
+      "local execution outputs",
+      "unreleased bundle contents",
+      "authority-bearing edits"
     ]
   },
   "refs": {
-    "kernel_sources_manifest": "kernel/sources/manifest.yaml",
-    "kernel_meta_manifest": "kernel/meta-manifest.yaml",
-    "docking_contract": "artifact-genai-loop/docking-contract.yaml",
+    "kernel_execution_surface_root": "kernel/generated/schemas/chatgpt-pipeline",
+    "kernel_packet_manifest": "kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.packet.pipeline.manifest.json",
+    "kernel_gate_policy": "kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.gate.policy.json",
+    "kernel_execution_policy": "kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.execution.policy.json",
+    "problem_set_runner_admission": "kernel/generated/state/admission/chatgpt-problem-set-runner",
+    "handoff_contract": "artifact-genai-loop/docking-contract.yaml",
     "source_manifest": "artifact-genai-loop/sources/manifest.yaml",
     "instruction_block": "artifact-genai-loop/instructions.md",
-    "docking_contract_schema": "schemas/kernel.docking-contract.schema.json"
+    "bundle_tarball_ref": "pending://artifact-genai-pipeline-tarball"
   },
   "docking_contract": {
     "contract_version": 1,
-    "sidecar_project_id": "artifact-genai-loop",
-    "kernel_source_root": "kernel",
-    "resolved_scope_set": {
-      "scope_set_id": "ks-2026-03-25-001",
-      "manifest_refs": [
-        "kernel/meta-manifest.yaml",
-        "kernel/manifests/contracts.yaml",
-        "kernel/manifests/workflows.yaml",
-        "kernel/manifests/publication.yaml",
-        "kernel/manifests/lineage.yaml",
-        "kernel/manifests/glossary.yaml",
-        "kernel/manifests/decision-register.yaml"
-      ],
-      "contract_refs": [
-        "schemas/kernel.contract.schema.json",
-        "schemas/kernel.workflow.schema.json",
-        "schemas/kernel.publication.schema.json",
-        "schemas/kernel.lineage.schema.json",
-        "schemas/kernel.docking-contract.schema.json"
-      ],
-      "workflow_profile_ref": "kernel/manifests/workflows.yaml",
-      "publication_policy_ref": "kernel/manifests/publication.yaml",
-      "example_bundle_refs": []
+    "registry_entry_id": "artifact-genai-loop",
+    "canonical_repo": "fatb4f/kernel",
+    "execution_surface_root": "kernel/generated/schemas/chatgpt-pipeline",
+    "execution_surface_refs": {
+      "workflow_manifest_ref": "kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.packet.pipeline.manifest.json",
+      "gate_policy_ref": "kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.gate.policy.json",
+      "execution_policy_ref": "kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.execution.policy.json",
+      "packet_schema_family_ref": "kernel/generated/schemas/chatgpt-pipeline/packet"
     },
-    "artifact_request": {
-      "artifact_class": "plan_packet_bundle",
-      "required_outputs": [
-        "packet",
-        "validation_evidence",
-        "fingerprint_record",
-        "publication_recommendation"
-      ],
-      "prohibited_outputs": [
-        "authority_manifest_edits",
-        "policy_edits",
-        "schema_edits"
-      ]
+    "bundle_release": {
+      "delivery_mode": "tarball_handoff",
+      "tarball_ref": "pending://artifact-genai-pipeline-tarball",
+      "integrity_ref": "pending://artifact-genai-pipeline-sha256",
+      "release_state": "pending_materialization"
+    },
+    "review_and_realization": {
+      "review_gate_ref": "kernel/generated/state/admission/chatgpt-problem-set-runner",
+      "expected_realization_state": "WAITING_HUMAN_REVIEW",
+      "realization_owner": "local kernel execution plane"
     },
     "trust_boundary": {
+      "registry_only": true,
       "authority_bearing": false,
-      "human_gate_required": false,
-      "direct_publish_allowed": true
+      "human_gate_required": true,
+      "direct_publish_allowed": false
     },
     "freshness": {
-      "issued_at": "2026-03-25",
-      "expires_at": "2026-03-28",
+      "issued_at": "2026-03-27",
+      "expires_at": "2026-03-30",
       "stale_after": "72h",
-      "linkage_status": "pending_chatgpt_project_creation",
-      "kernel_policy_ingest_mode": "symlink_or_sparse_checkout"
+      "stale_when": "execution_surface_or_tarball_ref_changes"
     },
     "invariants": [
-      "kernel decides truth",
-      "sidecar executes within declared bounds",
-      "no scope widening",
-      "no policy override",
-      "no publication outside kernel policy"
-    ],
-    "fingerprint": {
-      "scope_hash": "sha256:<scope-hash>",
-      "policy_hash": "sha256:<policy-hash>",
-      "schema_hash": "sha256:<schema-hash>"
-    }
+      "registry entry is not the execution plane",
+      "kernel execution surface decides runtime truth",
+      "tarball refs are payload pointers only",
+      "no realization from registry scope",
+      "no authority mutation from registry scope"
+    ]
   }
 }

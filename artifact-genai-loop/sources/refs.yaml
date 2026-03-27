@@ -1,7 +1,10 @@
 refs:
-  docking_contract: artifact-genai-loop/docking-contract.yaml
-  docking_contract_schema: schemas/kernel.docking-contract.schema.json
+  bundle_tarball_ref: pending://artifact-genai-pipeline-tarball
+  handoff_contract: artifact-genai-loop/docking-contract.yaml
   instruction_block: artifact-genai-loop/instructions.md
-  kernel_meta_manifest: kernel/meta-manifest.yaml
-  kernel_sources_manifest: kernel/sources/manifest.yaml
+  kernel_execution_policy: kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.execution.policy.json
+  kernel_execution_surface_root: kernel/generated/schemas/chatgpt-pipeline
+  kernel_gate_policy: kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.gate.policy.json
+  kernel_packet_manifest: kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.packet.pipeline.manifest.json
+  problem_set_runner_admission: kernel/generated/state/admission/chatgpt-problem-set-runner
   source_manifest: artifact-genai-loop/sources/manifest.yaml

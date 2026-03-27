@@ -1,54 +1,35 @@
 docking_contract:
-  artifact_request:
-    artifact_class: plan_packet_bundle
-    prohibited_outputs:
-      - authority_manifest_edits
-      - policy_edits
-      - schema_edits
-    required_outputs:
-      - packet
-      - validation_evidence
-      - fingerprint_record
-      - publication_recommendation
+  bundle_release:
+    delivery_mode: tarball_handoff
+    integrity_ref: pending://artifact-genai-pipeline-sha256
+    release_state: pending_materialization
+    tarball_ref: pending://artifact-genai-pipeline-tarball
+  canonical_repo: fatb4f/kernel
   contract_version: 1
-  fingerprint:
-    policy_hash: sha256:<policy-hash>
-    schema_hash: sha256:<schema-hash>
-    scope_hash: sha256:<scope-hash>
+  execution_surface_refs:
+    execution_policy_ref: kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.execution.policy.json
+    gate_policy_ref: kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.gate.policy.json
+    packet_schema_family_ref: kernel/generated/schemas/chatgpt-pipeline/packet
+    workflow_manifest_ref: kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.packet.pipeline.manifest.json
+  execution_surface_root: kernel/generated/schemas/chatgpt-pipeline
   freshness:
-    expires_at: '2026-03-28'
-    issued_at: '2026-03-25'
-    kernel_policy_ingest_mode: symlink_or_sparse_checkout
-    linkage_status: pending_chatgpt_project_creation
+    expires_at: '2026-03-30'
+    issued_at: '2026-03-27'
     stale_after: 72h
+    stale_when: execution_surface_or_tarball_ref_changes
   invariants:
-    - kernel decides truth
-    - sidecar executes within declared bounds
-    - no scope widening
-    - no policy override
-    - no publication outside kernel policy
-  kernel_source_root: kernel
-  resolved_scope_set:
-    contract_refs:
-      - schemas/kernel.contract.schema.json
-      - schemas/kernel.workflow.schema.json
-      - schemas/kernel.publication.schema.json
-      - schemas/kernel.lineage.schema.json
-      - schemas/kernel.docking-contract.schema.json
-    example_bundle_refs: []
-    manifest_refs:
-      - kernel/meta-manifest.yaml
-      - kernel/manifests/contracts.yaml
-      - kernel/manifests/workflows.yaml
-      - kernel/manifests/publication.yaml
-      - kernel/manifests/lineage.yaml
-      - kernel/manifests/glossary.yaml
-      - kernel/manifests/decision-register.yaml
-    publication_policy_ref: kernel/manifests/publication.yaml
-    scope_set_id: ks-2026-03-25-001
-    workflow_profile_ref: kernel/manifests/workflows.yaml
-  sidecar_project_id: artifact-genai-loop
+    - registry entry is not the execution plane
+    - kernel execution surface decides runtime truth
+    - tarball refs are payload pointers only
+    - no realization from registry scope
+    - no authority mutation from registry scope
+  registry_entry_id: artifact-genai-loop
+  review_and_realization:
+    expected_realization_state: WAITING_HUMAN_REVIEW
+    realization_owner: local kernel execution plane
+    review_gate_ref: kernel/generated/state/admission/chatgpt-problem-set-runner
   trust_boundary:
     authority_bearing: false
-    direct_publish_allowed: true
-    human_gate_required: false
+    direct_publish_allowed: false
+    human_gate_required: true
+    registry_only: true

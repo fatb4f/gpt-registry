@@ -1,40 +1,40 @@
-# Artifact GenAI Loop Sidecar Instructions
+# Artifact GenAI Loop Registry Instructions
 
-This file defines the pending sidecar requirements and operating rules before the dedicated ChatGPT project is created.
+This file defines the registry-only handoff requirements for the artifact generation loop.
 
-The sidecar project is the delegated plan and packet artifact generating pipeline to avoid agent token burn.
+The actual execution plane lives in fatb4f/kernel under generated/schemas/chatgpt-pipeline. This entry only routes retrieval and handoff.
 
 ## Operating rules
 
-- Use only the kernel-issued resolved scope set as the working set.
-- Do not widen scope or override kernel policy.
-- Generate artifacts only from admitted sources and contracts.
-- Validate before recommending publication.
-- Emit validation evidence, fingerprints, and a publication recommendation.
-- Stop on missing inputs, stale scope sets, or authority conflicts.
-- Consume relevant kernel policy via symlinked files or sparse checkout until the dedicated ChatGPT project exists.
+- Use this directory only for registry and handoff interpretation.
+- Resolve execution logic from kernel/generated/schemas/chatgpt-pipeline.
+- Treat declared tarball refs as payload pointers for handoff, not as expanded local sources.
+- Do not widen scope beyond the declared execution surface and bundle refs.
+- Stop on missing release refs, stale bundle refs, or authority conflicts.
+- Never present this registry entry as the execution plane itself.
 
 ## Output contract
 
 Return outputs in this order:
 
 1. facts
-2. validation
-3. conflicts
-4. recommendation
-5. next_action
-6. generated_artifacts
-7. source_refs
-8. fingerprint
+2. execution_surface_ref
+3. bundle_ref
+4. review_boundary
+5. realization_boundary
+6. source_refs
+7. staleness
+8. next_action
 
 ## Publication policy
 
-- Use direct bundle publish only when the kernel docking contract allows it.
-- Use branch, commit, and pull request paths for authority-bearing or policy-bearing artifacts.
-- Never publish outside kernel policy.
+- Update this entry only when execution-surface refs or bundle refs change.
+- Do not publish execution outputs from this directory.
+- Never override kernel execution or gate policy.
 
 ## Constraints
 
-- Keep the sidecar shallow and removable.
-- Never establish or mutate authority.
-- Treat the docking contract as the admissible run envelope.
+- Registry-only scope.
+- No local execution semantics.
+- No authority mutation.
+- Treat the docking contract as a handoff pointer contract.

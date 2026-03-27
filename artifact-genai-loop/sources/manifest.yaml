@@ -1,22 +1,20 @@
 sources:
   excluded_refs:
-    - authority-bearing changes
-    - kernel policy edits
-    - kernel scope expansion
+    - local execution outputs
+    - unreleased bundle contents
+    - authority-bearing edits
   included_refs:
-    - kernel/sources/manifest.yaml
-    - kernel/meta-manifest.yaml
-    - kernel/manifests/contracts.yaml
-    - kernel/manifests/workflows.yaml
-    - kernel/manifests/publication.yaml
-    - kernel/manifests/lineage.yaml
-    - kernel/manifests/glossary.yaml
-    - kernel/manifests/decision-register.yaml
-    - schemas/kernel.docking-contract.schema.json
+    - kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.packet.pipeline.manifest.json
+    - kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.gate.policy.json
+    - kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.execution.policy.json
+    - kernel/generated/schemas/chatgpt-pipeline/packet/packet.definition.schema.json
+    - kernel/generated/schemas/chatgpt-pipeline/packet/packet.review.request.schema.json
+    - kernel/generated/state/admission/chatgpt-problem-set-runner
+    - released tarball bundle refs
   project_id: artifact-genai-loop
-  resolved_from: kernel-issued docking contract
+  resolved_from: kernel execution surface release
   source_purpose:
-    - artifact generation
-    - validation evidence
-    - publication recommendation
-  source_set_id: as-2026-03-25-001
+    - execution plane discovery
+    - handoff routing
+    - bundle release lookup
+  source_set_id: agl-reg-2026-03-27-001
