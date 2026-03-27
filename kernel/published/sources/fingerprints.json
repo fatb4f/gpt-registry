@@ -4,23 +4,23 @@
   "entries": [
     {
       "path": "published/instructions-preview.md",
-      "sha256": "96909df3d487201e7755f377a8d58b980d50621123c73105eb2efdf832ba70ba"
+      "sha256": "7569d610379322be07a3a9d9838b9b0c6d844c51c0b2508be69bade36c5a73d1"
     },
     {
       "path": "published/project-pack.md",
-      "sha256": "c22d21ae6945e23be8db967f6cadff739a967e45444d553b24c7431e326582ca"
+      "sha256": "47596fbbf4089e4127c3275ed67e21fe888e2292c1c69325b434d3ee5b031522"
     },
     {
       "path": "published/project-pack.yaml",
-      "sha256": "af50f7f7d290cc147641a3904c7fd8fd3ceb0f7a24a2c5ffb357863fd2b63597"
+      "sha256": "5d69d503c69d33cae430eacca0efb2c087dafaab5a3e5a456a18c0b5c7fabe83"
     },
     {
       "path": "published/sources/AGENTS.md",
-      "sha256": "498d3773c919196b5415792c15797785e45a1d2bd502fc905a5e50410c33d246"
+      "sha256": "f04b3a529045c2bad5ff4a27cf1767f520d38f1847a02d1e840b1521ae2030aa"
     },
     {
       "path": "published/sources/fingerprints.json",
-      "sha256": "bd553081b45fca52481e189f99b038ede93dc00e6873c48714edd6592cb0a240"
+      "sha256": "19457855fae9ee41e4de33d6c567af398d6895039e9c610ed943e3d8ad36882b"
     },
     {
       "path": "published/sources/manifest.md",
@@ -80,11 +80,11 @@
     },
     {
       "path": "published/sources/meta-manifest.md",
-      "sha256": "d64c00197335621d0d4e68a0dfd9303a83f69d4288f06ffe04a7d461afa35e71"
+      "sha256": "7a4edc48ffcc270daf6ae4c650a0f6a27269776924c0ff37491c736a0a40f31d"
     },
     {
       "path": "published/sources/meta-manifest.yaml",
-      "sha256": "54764f4aff51c4a47968afe1813b8bf66bd1e52ab7fff532b825bb1bc96b2bc5"
+      "sha256": "2c94ab2138e5282543d1617709277acdc787eee7dd4a5f8b3c1779986a6455d7"
     },
     {
       "path": "published/sources/project-sources.md",
@@ -104,8 +104,8 @@
     },
     {
       "path": "published/sources/release.json",
-      "sha256": "10666e51610c263ff64cb6a7efd677899c0cee6862c9c9557dd6fc32df91fc8c"
+      "sha256": "7ac3b34877b13b97f3e215e63f0891222d541b4faa69a803d84effc4566707e4"
     }
   ],
-  "generated_at": "2026-03-27T18:47:25Z"
+  "generated_at": "2026-03-27T19:03:25Z"
 }

@@ -2,11 +2,18 @@
 
 This file is the canonical instruction text for the ChatGPT project linked to `fatb4f/kernel`.
 
+This bundle is a RAG registry and retrieval slice to the canonical kernel
+repository. It is not the full kernel authority plane. Only files physically
+present in the project pack are in-pack sources; external refs remain pointers
+to the canonical repository or other declared surfaces.
+
 ## Operating rules
 
+- Treat this project pack as a retrieval registry to `fatb4f/kernel`, not as the full kernel.
 - Treat `kernel/meta-manifest.yaml` as the root router.
 - Resolve conflicts by declared source priority.
 - Prefer authoritative kernel manifests over derived notes or examples.
+- Use ChatGPT Project settings instructions to layer pointer guidance into this pack when needed.
 - Do not invent missing contract fields, workflow states, or policy rules.
 - Distinguish fact, inference, and recommendation clearly.
 - Return resolved scope sets, not freeform notes, when scoping work.
@@ -37,6 +44,8 @@ For validation questions, return:
 
 ## Constraints
 
+- Do not collapse bundled retrieval sources into full repository authority.
+- Do not assume external refs are mirrored unless they are physically present in the pack.
 - Keep kernel truth durable and compact.
 - Do not blend execution behavior into kernel authority files.
 - Treat publication policy as a kernel-owned decision surface.

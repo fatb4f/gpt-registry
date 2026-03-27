@@ -9,6 +9,8 @@ registry:
   kind: gpt-project-registry-entry
   version: 0.1.0
   canonical_project_dir: kernel
+  canonical_repo: fatb4f/kernel
+  bundle_class: rag_registry
   canonical_instruction_ref: kernel/instructions.md
   canonical_source_manifest_ref: kernel/sources/manifest.yaml
   canonical_project_source_contract_ref: kernel/sources/project-sources.yaml
@@ -35,6 +37,8 @@ publication:
   published_bundle_version: pending
 
 notes:
-  - meta-manifest.yaml remains the kernel authority router for source resolution.
-  - instructions.md is canonical in git, but project settings remain the applied instruction surface.
+  - This bundle is a RAG registry to fatb4f/kernel, not the full kernel authority plane.
+  - meta-manifest.yaml remains the bundle router for source resolution back to the canonical kernel.
+  - instructions.md is canonical in git, while AGENTS.md is the bundled behavioral mirror for project retrieval.
+  - project settings remain the applied UI instruction surface and may carry pointer guidance into the bundle.
   - bundle artifacts are release outputs and should be mirrored without raw repo sprawl.
