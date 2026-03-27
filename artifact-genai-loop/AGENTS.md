@@ -35,6 +35,7 @@ Return outputs in this order:
 ## Constraints
 
 - Registry-only scope.
-- No local execution semantics.
+- Not executable from this entry.
+- Execution semantics are resolved from the referenced kernel execution surface.
 - No authority mutation.
 - Treat the docking contract as a handoff pointer contract.

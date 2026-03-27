@@ -1,5 +1,6 @@
 refs:
-  bundle_tarball_ref: pending://artifact-genai-pipeline-tarball
+  bundle_integrity_ref: kernel/generated/bundles/chatgpt-pipeline/chatgpt-pipeline-2026-03-27.tar.gz.sha256
+  bundle_tarball_ref: kernel/generated/bundles/chatgpt-pipeline/chatgpt-pipeline-2026-03-27.tar.gz
   handoff_contract: artifact-genai-loop/docking-contract.yaml
   instruction_block: artifact-genai-loop/instructions.md
   kernel_execution_policy: kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.execution.policy.json

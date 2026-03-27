@@ -1,9 +1,10 @@
 docking_contract:
   bundle_release:
     delivery_mode: tarball_handoff
-    integrity_ref: pending://artifact-genai-pipeline-sha256
-    release_state: pending_materialization
-    tarball_ref: pending://artifact-genai-pipeline-tarball
+    integrity_ref: kernel/generated/bundles/chatgpt-pipeline/chatgpt-pipeline-2026-03-27.tar.gz.sha256
+    release_state: materialized
+    sha256: 96289fee74f09efa3aac4dd4f2fa2e041f957deba1de2bf9192aeabc6f098f1c
+    tarball_ref: kernel/generated/bundles/chatgpt-pipeline/chatgpt-pipeline-2026-03-27.tar.gz
   canonical_repo: fatb4f/kernel
   contract_version: 1
   execution_surface_refs:
@@ -21,7 +22,7 @@ docking_contract:
     - registry entry is not the execution plane
     - kernel execution surface decides runtime truth
     - tarball refs are payload pointers only
-    - no realization from registry scope
+    - no realization from this registry entry
     - no authority mutation from registry scope
   registry_entry_id: artifact-genai-loop
   review_and_realization:
