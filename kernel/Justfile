@@ -1,0 +1,15 @@
+set shell := ["bash", "-lc"]
+
+default:
+  @just --list
+
+build:
+  ./bundle/build.sh
+
+render-md:
+  ./bundle/build.sh
+
+archive:
+  ./bundle/archive.sh
+
+bundle: build archive

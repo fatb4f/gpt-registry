@@ -3,6 +3,7 @@
 set -euo pipefail
 
 repo_root="$(cd "$(dirname "$0")/.." && pwd)"
+jsonnet_bin="${JSONNET_BIN:-/home/_404/.local/share/cargo/bin/rsjsonnet}"
 published_root="${repo_root}/published"
 published_sources="${published_root}/sources"
 published_manifests="${published_sources}/manifests"
@@ -23,6 +24,7 @@ lineage_manifest="${repo_root}/manifests/lineage.yaml"
 glossary_manifest="${repo_root}/manifests/glossary.yaml"
 decision_register_manifest="${repo_root}/manifests/decision-register.yaml"
 examples_dir="${repo_root}/sources/examples"
+md_mirror_template="${repo_root}/render/jsonnet/md_mirrors.jsonnet"
 
 timestamp="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 bundle_version="$(python - <<'PY'
@@ -42,6 +44,7 @@ PY
 )"
 
 mkdir -p "${published_sources}" "${published_manifests}" "${published_examples}"
+find "${published_root}" -name .gitkeep -delete
 
 cp "${metadata_path}" "${published_root}/project-pack.yaml"
 cp "${instructions_path}" "${published_root}/instructions-preview.md"
@@ -57,9 +60,14 @@ cp "${lineage_manifest}" "${published_manifests}/lineage.yaml"
 cp "${glossary_manifest}" "${published_manifests}/glossary.yaml"
 cp "${decision_register_manifest}" "${published_manifests}/decision-register.yaml"
 find "${published_examples}" -mindepth 1 -delete
-if find "${examples_dir}" -mindepth 1 -type f | read -r _; then
+if find "${examples_dir}" -mindepth 1 -type f ! -name .gitkeep | read -r _; then
   cp -R "${examples_dir}/." "${published_examples}/"
+  find "${published_examples}" -name .gitkeep -delete
+else
+  rmdir "${published_examples}" 2>/dev/null || true
 fi
+
+"${jsonnet_bin}" -m "${published_root}" "${md_mirror_template}" >/dev/null
 
 python - <<'PY'
 from pathlib import Path
