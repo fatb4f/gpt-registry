@@ -1,0 +1,52 @@
+project_sources:
+  project_id: kernel
+  pack_id: kernel-project-pack
+  pack_version: 0.1.0
+  delivery_target: gdrive/project/kernel
+  sync_mode: mirrored_release_bundle
+  status: active
+
+  required_in_project:
+    - AGENTS.md
+    - meta-manifest.yaml
+    - manifest.yaml
+    - project-sources.yaml
+    - manifests/contracts.yaml
+    - manifests/workflows.yaml
+    - manifests/publication.yaml
+    - manifests/lineage.yaml
+    - manifests/glossary.yaml
+    - manifests/decision-register.yaml
+
+  optional_in_project:
+    - refs.yaml
+    - release.json
+    - fingerprints.json
+    - examples/
+
+  behavioral_sources:
+    - AGENTS.md
+
+  external_references:
+    - schemas/kernel.contract.schema.json
+    - schemas/kernel.workflow.schema.json
+    - schemas/kernel.publication.schema.json
+    - schemas/kernel.lineage.schema.json
+    - schemas/kernel.docking-contract.schema.json
+    - policy/kernel/contracts.policy.yaml
+    - policy/kernel/workflows.policy.yaml
+    - policy/kernel/publication.policy.yaml
+    - policy/kernel/lineage.policy.yaml
+    - bundle/kernel-contract-pack.json
+    - bundle/kernel-workflow-pack.json
+
+  excluded_from_project:
+    - raw_repo_history
+    - unrelated_repo_docs
+    - transient_build_outputs
+
+  validity_rules:
+    - all required_in_project files must be physically present in published/sources
+    - external_references must not be treated as bundled unless mirrored
+    - pack is invalid if any required_in_project file is missing
+    - AGENTS.md is canonical behavioral guidance inside the project source pack

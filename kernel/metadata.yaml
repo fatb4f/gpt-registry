@@ -1,0 +1,40 @@
+project:
+  id: kernel
+  name: Kernel
+  status: active
+  owners:
+    - _404
+
+registry:
+  kind: gpt-project-registry-entry
+  version: 0.1.0
+  canonical_project_dir: kernel
+  canonical_instruction_ref: kernel/instructions.md
+  canonical_source_manifest_ref: kernel/sources/manifest.yaml
+  canonical_project_source_contract_ref: kernel/sources/project-sources.yaml
+
+bundle:
+  bundle_id: kernel-project-pack
+  version: 0.1.0
+  release_ref: kernel/bundle/release.json
+  fingerprints_ref: kernel/bundle/fingerprints.json
+  published_root: kernel/published
+
+delivery:
+  transport: google-drive-project-source
+  mirror_policy: sync-published-pack-only
+  drive_target: pending
+
+instructions:
+  canonical_ref: kernel/instructions.md
+  applied_in_project_ui: false
+  applied_version: pending
+
+publication:
+  last_published_at: pending
+  published_bundle_version: pending
+
+notes:
+  - meta-manifest.yaml remains the kernel authority router for source resolution.
+  - instructions.md is canonical in git, but project settings remain the applied instruction surface.
+  - bundle artifacts are release outputs and should be mirrored without raw repo sprawl.

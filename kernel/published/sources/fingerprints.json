@@ -1,0 +1,67 @@
+{
+  "artifact_type": "gpt_project_pack_fingerprints",
+  "artifact_version": "0.1.0",
+  "entries": [
+    {
+      "path": "published/instructions-preview.md",
+      "sha256": "96909df3d487201e7755f377a8d58b980d50621123c73105eb2efdf832ba70ba"
+    },
+    {
+      "path": "published/project-pack.yaml",
+      "sha256": "af50f7f7d290cc147641a3904c7fd8fd3ceb0f7a24a2c5ffb357863fd2b63597"
+    },
+    {
+      "path": "published/sources/AGENTS.md",
+      "sha256": "498d3773c919196b5415792c15797785e45a1d2bd502fc905a5e50410c33d246"
+    },
+    {
+      "path": "published/sources/fingerprints.json",
+      "sha256": "dabf953761a9f7f0be9330874e320831cb6dfc856430f0735c7d36e74c313add"
+    },
+    {
+      "path": "published/sources/manifest.yaml",
+      "sha256": "e64abde40664748391fe245daaee17450435bfe1f89608ada4c151d2c8c354e8"
+    },
+    {
+      "path": "published/sources/manifests/contracts.yaml",
+      "sha256": "62c1437ab25fdb36c9e26f18e55edc11176cf00d962761ab9b615fdf626eaa6b"
+    },
+    {
+      "path": "published/sources/manifests/decision-register.yaml",
+      "sha256": "261e94dbff70953838b74f176f0d3d2089d4ed8c878f31ac50a33b0ca91e74f3"
+    },
+    {
+      "path": "published/sources/manifests/glossary.yaml",
+      "sha256": "5784809d73e7ec8fce72db019c9bb5f50210f12f85e6579e19c7b5ecffa6b125"
+    },
+    {
+      "path": "published/sources/manifests/lineage.yaml",
+      "sha256": "9bffdc75fd6820af43a77efe7b8c8401eddba0f9143ea1101dd09b930bae5dbe"
+    },
+    {
+      "path": "published/sources/manifests/publication.yaml",
+      "sha256": "8ff16e69675bdb886dc5540563fad27027d9ceac138ca8e5c1475fd9fc3ecbd9"
+    },
+    {
+      "path": "published/sources/manifests/workflows.yaml",
+      "sha256": "3047d3d4234c3c2a2fdb1a8e687be5a1494a3838cb76c534f0ea070435f2e44e"
+    },
+    {
+      "path": "published/sources/meta-manifest.yaml",
+      "sha256": "54764f4aff51c4a47968afe1813b8bf66bd1e52ab7fff532b825bb1bc96b2bc5"
+    },
+    {
+      "path": "published/sources/project-sources.yaml",
+      "sha256": "2c6ead52769e2c765a90466f83430e32dcd15d8d953b175422297780e3d5b746"
+    },
+    {
+      "path": "published/sources/refs.yaml",
+      "sha256": "fded9fadd3acb0653200059d9b5ac02eded0cb81f9e1085e83ab9d858652c2d2"
+    },
+    {
+      "path": "published/sources/release.json",
+      "sha256": "6374f7accde679cf1c079e0581d787d55dd6c563a8dd0f5e439658efa3f9abb9"
+    }
+  ],
+  "generated_at": "2026-03-27T11:49:57Z"
+}

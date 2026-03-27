@@ -1,0 +1,49 @@
+manifest:
+  id: lineage
+  type: lineage_registry
+  version: 0.1.0
+  status: active
+  owner: _404
+  last_updated: 2026-03-25
+
+scope:
+  in_scope:
+    - artifact classes
+    - parent child relationships
+    - generation provenance
+    - validation provenance
+    - promotion state vocabulary
+  out_of_scope:
+    - execution transport
+    - publication policy definition
+
+authority:
+  canonical_sources:
+    - kernel/meta-manifest.yaml
+    - kernel/manifests/lineage.yaml
+  source_priority:
+    - kernel/meta-manifest.yaml
+    - kernel/manifests/lineage.yaml
+  conflict_resolution: higher priority wins; lineage conflicts must be surfaced
+
+lineage:
+  artifact_classes:
+    - generated_bundle
+    - derived_report
+    - cacheable_index
+    - root_manifest
+  relationship_types:
+    - generated_from
+    - validated_against
+    - promoted_to
+    - superseded_by
+
+contracts:
+  schema_refs:
+    - ref: schemas/kernel.lineage.schema.json
+  policy_refs:
+    - ref: policy/kernel/lineage.policy.yaml
+
+freshness:
+  review_cadence: on-change
+  staleness_policy: any parent or promotion-state change invalidates derived records

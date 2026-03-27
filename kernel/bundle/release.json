@@ -1,0 +1,27 @@
+{
+  "artifact_type": "gpt_project_pack_release",
+  "artifact_version": "0.1.0",
+  "project_id": "kernel",
+  "bundle_id": "kernel-project-pack",
+  "bundle_version": "0.1.0",
+  "published_root": "kernel/published",
+  "included_files": [
+    "published/instructions-preview.md",
+    "published/project-pack.yaml",
+    "published/sources/AGENTS.md",
+    "published/sources/fingerprints.json",
+    "published/sources/manifest.yaml",
+    "published/sources/manifests/contracts.yaml",
+    "published/sources/manifests/decision-register.yaml",
+    "published/sources/manifests/glossary.yaml",
+    "published/sources/manifests/lineage.yaml",
+    "published/sources/manifests/publication.yaml",
+    "published/sources/manifests/workflows.yaml",
+    "published/sources/meta-manifest.yaml",
+    "published/sources/project-sources.yaml",
+    "published/sources/refs.yaml",
+    "published/sources/release.json"
+  ],
+  "generated_at": "2026-03-27T11:49:57Z",
+  "fingerprints_ref": "kernel/bundle/fingerprints.json"
+}
