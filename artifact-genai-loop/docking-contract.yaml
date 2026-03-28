@@ -1,10 +1,10 @@
 docking_contract:
   bundle_release:
     delivery_mode: tarball_handoff
-    integrity_ref: kernel/generated/bundles/chatgpt-pipeline/chatgpt-pipeline-2026-03-27.tar.gz.sha256
+    integrity_ref: kernel/generated/bundles/chatgpt-pipeline/chatgpt-pipeline-2026-03-28.tar.gz.sha256
     release_state: materialized
-    sha256: 96289fee74f09efa3aac4dd4f2fa2e041f957deba1de2bf9192aeabc6f098f1c
-    tarball_ref: kernel/generated/bundles/chatgpt-pipeline/chatgpt-pipeline-2026-03-27.tar.gz
+    sha256: cc1607204422e72ab9640853009c8f635d6fa05bfc7abf7853209f9b73865d76
+    tarball_ref: kernel/generated/bundles/chatgpt-pipeline/chatgpt-pipeline-2026-03-28.tar.gz
   canonical_repo: fatb4f/kernel
   contract_version: 1
   execution_surface_refs:
@@ -14,8 +14,8 @@ docking_contract:
     workflow_manifest_ref: kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.packet.pipeline.manifest.json
   execution_surface_root: kernel/generated/schemas/chatgpt-pipeline
   freshness:
-    expires_at: '2026-03-30'
-    issued_at: '2026-03-27'
+    expires_at: '2026-03-31'
+    issued_at: '2026-03-28'
     stale_after: 72h
     stale_when: execution_surface_or_tarball_ref_changes
   invariants:
