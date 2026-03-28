@@ -68,7 +68,7 @@ local agentsMd =
     }],
   ]),
 
-  'sources/manifest.yaml': yamlFile([
+  'manifest.yaml': yamlFile([
     ['sources', {
       project_id: p.sources_manifest.project_id,
       source_set_id: p.sources_manifest.source_set_id,
@@ -79,7 +79,7 @@ local agentsMd =
     }],
   ]),
 
-  'sources/refs.yaml': yamlFile([
+  'refs.yaml': yamlFile([
     ['refs', p.refs],
   ]),
 }

@@ -30,13 +30,13 @@ authority:
   root: kernel
   source_priority:
     - artifact-genai-loop/docking-contract.yaml
-    - artifact-genai-loop/sources/manifest.yaml
+    - artifact-genai-loop/manifest.yaml
     - artifact-genai-loop/instructions.md
     - kernel/generated/schemas/chatgpt-pipeline
 retrieval:
   admissible_inputs:
     - artifact-genai-loop/docking-contract.yaml
-    - artifact-genai-loop/sources/manifest.yaml
+    - artifact-genai-loop/manifest.yaml
     - kernel/generated/schemas/chatgpt-pipeline
     - released tarball bundle refs
   reference_only_sources:
@@ -46,7 +46,7 @@ linked_manifests:
   - id: handoff-contract
     ref: artifact-genai-loop/docking-contract.yaml
   - id: sources
-    ref: artifact-genai-loop/sources/manifest.yaml
+    ref: artifact-genai-loop/manifest.yaml
   - id: instructions
     ref: artifact-genai-loop/instructions.md
 change_control:

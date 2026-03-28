@@ -33,7 +33,7 @@
     "dependency_model": "This entry is registry-only. Canonical execution semantics live in fatb4f/kernel under the chatgpt-pipeline execution surface.",
     "source_priority": [
       "artifact-genai-loop/docking-contract.yaml",
-      "artifact-genai-loop/sources/manifest.yaml",
+      "artifact-genai-loop/manifest.yaml",
       "artifact-genai-loop/instructions.md",
       "kernel/generated/schemas/chatgpt-pipeline"
     ],
@@ -42,7 +42,7 @@
   "retrieval": {
     "admissible_inputs": [
       "artifact-genai-loop/docking-contract.yaml",
-      "artifact-genai-loop/sources/manifest.yaml",
+      "artifact-genai-loop/manifest.yaml",
       "kernel/generated/schemas/chatgpt-pipeline",
       "released tarball bundle refs"
     ],
@@ -58,7 +58,7 @@
     },
     {
       "id": "sources",
-      "ref": "artifact-genai-loop/sources/manifest.yaml"
+      "ref": "artifact-genai-loop/manifest.yaml"
     },
     {
       "id": "instructions",
@@ -172,7 +172,7 @@
     "kernel_execution_policy": "kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.execution.policy.json",
     "problem_set_runner_admission": "kernel/generated/state/admission/chatgpt-problem-set-runner",
     "handoff_contract": "artifact-genai-loop/docking-contract.yaml",
-    "source_manifest": "artifact-genai-loop/sources/manifest.yaml",
+    "source_manifest": "artifact-genai-loop/manifest.yaml",
     "instruction_block": "artifact-genai-loop/instructions.md",
     "bundle_tarball_ref": "kernel/generated/bundles/chatgpt-pipeline/chatgpt-pipeline-2026-03-27.tar.gz",
     "bundle_integrity_ref": "kernel/generated/bundles/chatgpt-pipeline/chatgpt-pipeline-2026-03-27.tar.gz.sha256"

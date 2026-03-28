@@ -8,4 +8,4 @@ refs:
   kernel_gate_policy: kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.gate.policy.json
   kernel_packet_manifest: kernel/generated/schemas/chatgpt-pipeline/workflow/chatgpt.packet.pipeline.manifest.json
   problem_set_runner_admission: kernel/generated/state/admission/chatgpt-problem-set-runner
-  source_manifest: artifact-genai-loop/sources/manifest.yaml
+  source_manifest: artifact-genai-loop/manifest.yaml
